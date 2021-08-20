@@ -148,7 +148,7 @@ class Movie(models.Model):
     )
 
     fees_in_world = models.PositiveIntegerField(
-        'Приходи в световен мащаб',
+        'Приходи по цял свят',
         default=0,
         help_text='бюджета е в долари'
     )
@@ -172,6 +172,9 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("movie_detail", kwargs={'slug': self.url})
 
     class Meta:
         verbose_name = 'Филм'
@@ -206,3 +209,31 @@ class MovieShot(models.Model):
     class Meta:
         verbose_name = 'Кадър от филма'
         verbose_name_plural = 'Кадри от филми'
+
+
+class Reviews(models.Model):
+    # Коментари
+    email = models.EmailField()
+    name = models.CharField(
+        'Име',
+        max_length=100
+    )
+
+    text = models.TextField(
+        'Съобщение',
+        max_length=5000
+    )
+
+    movie = models.ForeignKey(
+        Movie,
+        verbose_name='филм',
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f'{self.name} - {self.movie}'
+
+    class Meta:
+        verbose_name = 'Коментар'
+        verbose_name_plural = 'Коментари'
+
