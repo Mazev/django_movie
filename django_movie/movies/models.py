@@ -213,7 +213,6 @@ class MovieShot(models.Model):
 
 class Reviews(models.Model):
     # Коментари
-    email = models.EmailField()
     name = models.CharField(
         'Име',
         max_length=100
