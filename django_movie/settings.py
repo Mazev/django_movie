@@ -24,12 +24,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'django_movie.movies',
     'ckeditor',
     'ckeditor_uploader',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,8 +68,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_movie.wsgi.application'
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 
 DATABASES = {
     'default': {
@@ -76,6 +92,11 @@ DATABASES = {
     }
 }
 
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -106,6 +127,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -192,3 +215,5 @@ CKEDITOR_CONFIGS = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

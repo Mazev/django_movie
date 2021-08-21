@@ -24,7 +24,7 @@ class ReviewInLine(admin.TabularInline):
     # Коментари на страницата към филма
     model = Reviews
     extra = 1
-    readonly_fields = ('name', 'email')
+    readonly_fields = ('name',)
 
 
 class MovieShotsInLine(admin.TabularInline):
@@ -86,8 +86,8 @@ class MovieAdmin(admin.ModelAdmin):
 @admin.register(Reviews)
 class ReviewAdmin(admin.ModelAdmin):
     # Информация към филма
-    list_display = ('name', 'email', 'movie', 'id')
-    readonly_fields = ('name', 'email')
+    list_display = ('name',  'movie', 'id')
+
 
 
 

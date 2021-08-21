@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="todo_apps.todos.admin.Persen" />
+          <option value="notes.profiles.forms.forms" />
+          <option value="notes.profiles.views.Profileform" />
+          <option value="Workshop_Part_1_test.commod.urls.landing_page" />
+          <option value="online_library.books.urls.edit_profils" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
